@@ -1,0 +1,188 @@
+Tugas Latihan 1
+
+Bagaimana cara membuat project Flutter menggunakan terminal/cmd?
+1-buat folder kasih nama priject yang mau dibuat
+2-buka folder yang sudah dibuat dicmd
+3-lalu ketik create flutter create project_flutter
+
+Apa aturan dalam memberikan nama project pada Flutter?
+1-tidak boleh pakai spasi
+2-tidak menggunakan huruf special kecuali tanda _
+
+Apa saja folder yang secara khusus disiapkan oleh Flutter untuk menjalankan aplikasi pada platform tertentu?
+1-idea
+2-android
+3-ios
+4-lib
+5-linuk
+6-macos
+7-test
+8-web
+9-dll
+
+Apa fungsi dari folder .dart_tools dan .idea?
+1-.dart_tools itu berisi konfigurasi dart package yang di generate oleh flutter 
+2-.idea ituu untuk menyimpan konfigurasi android studio
+
+Bagaimana cara membuka project Flutter menggunakan Visual Studio Code?
+1-buka folder project flutter yang ingin dibuka
+2-lalu ketik saja di cmd code .
+
+Mengapa kita perlu memastikan Android SDK terinstall untuk menjalankan 
+-android SDK adalah bagian yang penting untuk mengembangkan, menguji dan menerapkan aplikasi flutter di platfrom android
+
+Apa langkah-langkah untuk mengatasi masalah "Android Toolchain error" pada perintah flutter doctor?
+-pastikan android SDK terinstal
+-perbarui flutter dan tools
+-periksa variabel lingkungan
+-periksa konfigurasi flutter
+
+Bagaimana cara menambahkan Android SDK Command-line tools melalui Android Studio?
+1-buka android studio, klik more actions pilih virtual device manager
+2-klik create, pilih device phone
+3-pilih system image, cari R dan klik
+4-masuk android studio,lali klik more actions, pilih SDK manager
+5-pilih tab SDK tools, lalu centang android sdk command-line lalu aply
+
+Apa fungsi dari file .gitignore dalam struktur folder Flutter?
+-file .gitignore berisi list folder atau file yang tidak akan ikut masuk kedalam git repository ketika kita push ke repository tersebut
+
+Mengapa file pubspec.yaml sangat penting dalam pengembangan aplikasi Flutter?
+-Pubspec.yml merupakan file yang akan sering kita gunakan. File ini yang memungkinan kita untuk mengelola sebagian besar dependensi project kita,dapat mengkonfigurasi package pihak ketiga kedalam project kita dan dan semua fiturnya dapat langsung kita pakai.
+
+Apa yang dimaksud dengan widget dalam konteks Flutter?
+-widget adalah blok penyusun UI yang dapat kita lihat di layar. Lihat yang saya kotakin merah, itu semua adalah widget.
+
+Bagaimana pewarisan (inheritance) digunakan dalam pembuatan widget Flutter?
+-Cara pewarisan class yang sudah dibuat oleh flutter adalah dengan menambahkan kata kunci extends setelah nama class dan sebelum kurung kurawal dan memberitahu dart bahwa class ini akan mewarisi class lain dan kita hanya dapat memperluas atau mewarisi satu class dalam satu waktu.
+
+Apa peran widget MaterialApp dalam pembuatan aplikasi Flutter?
+-Class widget kita yang kita beri nama MyApp membutuhkan kembalian berupa widget juga. widget MaterialApp untuk kembaliannya. MaterialApp ini adalah widget yang sudah disediakan oleh flutter melalui class material.dart.
+
+Mengapa kita membutuhkan fungsi runApp untuk menjalankan aplikasi Flutter?
+-runApp sendiri function yang disediakan oleh flutter untuk menjalankan aplikasi flutter setelah aplikasi android atau ios di-boot. Alurnya dia akan mencoba mengambil widget tree yang kita buat, dan menggambarnya ke layar yang didasarkan pada widget tree tersebut. 
+
+Apa kegunaan widget Scaffold dalam struktur aplikasi Flutter?
+-Untuk mendapatkan tampilan yang lebih indah, kita dapat menggunakan widget lain yang sudah disediakan oleh flutter yaitu widget scaffold. Widget ini mempunyai beberapa argument, yang sering digunakan adalah argument appBar dan body.
+
+Bagaimana cara menambahkan app bar dan body pada widget Scaffold?
+-masukan kedalam argument home yang ada di MaterialApp, 
+-lalu di dalam scaffold terdapat appBar. Ini yang nantinya akan menjadi tampilan di bagian anah layar. Lalu terdapat juga body, ini nanti berisi content yang ingin kita kelola.
+home: scaffold(
+  appBar: AppBar(
+    title: conts Text("")
+  ),
+  body:(),
+)
+
+Apa perbedaan antara Stateless Widget dan Stateful Widget?
+-Stateless Widget yaitu dapat dikatakan sebagai widget statis yang berarti widget tersebut tidak berubah. UI akan dirender ketika class ini dipanggil oleh widget lain dengan inputan berupa string text. Jadi dia tidak memiliki state sendiri di dalam dirinya.
+-Stateful Widget merupakan widget yang dinamis. Ini berarti widget ini dapat merubah tampilannya sesuai response dari events yang dipicu baik dari interaksi user maupun adanya variabel atau nilai baru yang didapat.
+
+Mengapa Stateful Widget disebut memiliki state internal?
+- class yang meng extends class statefulwidget, akan dapat memiliki internal state nya dan dapat menguntungkan karena render UI nya tidak hanya bergantung dari inputan dari widget lain, namun dengan memanggil setState maka widget build akan re-run ulang dengan state yang baru tanpa harus menunggu perubahan di widget tree atas nya
+
+Berikan contoh penggunaan Stateless Widget dalam pembuatan aplikasi Flutter.
+import 'package:flutter/material.dart';
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Contoh Stateless Widget'),
+        ),
+        body: Center(
+          child: Text(
+            'Halo, dunia!',
+            style: TextStyle(fontSize: 24.0),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(MyApp());
+}
+
+Berikan contoh penggunaan Stateful Widget dalam pembuatan aplikasi Flutter beserta alasan penggunaannya.
+
+import 'package:flutter/material.dart';
+
+ 
+
+void main() => runApp(MyApp());
+
+ 
+
+class MyApp extends StatelessWidget {
+
+  @override
+
+  Widget build(BuildContext context) {
+
+    return MaterialApp(
+
+      title: 'Flutter Demo',
+
+      theme: ThemeData(
+
+        primarySwatch: Colors.blue,
+
+      ),
+
+      home: Scaffold(
+
+        body: Center(
+
+          child: Text("Hello world!"),
+
+        ),
+
+      ),
+
+    );
+
+  }
+
+}
+
+ 
+
+class Heading extends StatelessWidget {
+
+  final String text;
+
+ 
+
+  Heading({this.text});
+
+ 
+
+  @override
+
+  Widget build(BuildContext context){
+
+    return Text(
+
+      text,
+
+      style: TextStyle(
+
+        fontSize: 24.0,
+
+        fontWeight: FontWeight.bold,
+
+      ),
+
+    );
+
+  }
+
+}
+
+Sehingga ketika dijalankan 
+
